@@ -6,6 +6,7 @@ on:
 
 jobs:
   close-pr:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -23,4 +24,3 @@ jobs:
       uses: peter-evans/close-pull@v1
       with:
         comment: "Pull request is closed because it contains the word 'closed'."
-        reason: "not_planned"
