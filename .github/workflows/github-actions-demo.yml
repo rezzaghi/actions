@@ -15,6 +15,7 @@ jobs:
           echo "closed_keyword_found=true" >> $GITHUB_ENV
         fi
 
+    - name: Close PR
       if: env.closed_keyword_found == 'true'
       uses: peter-evans/close-pull@v1
       with:
