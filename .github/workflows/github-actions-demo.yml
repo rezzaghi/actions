@@ -8,6 +8,9 @@ jobs:
   close-pr:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: Checking all files for 'closed' Keyword
       id: check-files
       run: |
