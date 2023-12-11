@@ -1,0 +1,4 @@
+closed
+close
+"closed"
+"close"
