@@ -1,0 +1,23 @@
+name: GitHub Actions closing PR
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  close-pr:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checking all files for 'closed' Keyword
+      id: check-files
+      run: |
+        if grep -r --include=\* --exclude-dir=.git --exclude-dir=.github closed . ; then
+          echo "closed_keyword_found=true" >> $GITHUB_ENV
+        fi
+
+    - name: Close PR
+      if: env.closed_keyword_found == 'true'
+      uses: peter-evans/close-pull@v1
+      with:
+        comment: "Pull request is closed because it contains the word 'closed'."
+        reason: "Closed Keyword"
