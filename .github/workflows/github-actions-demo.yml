@@ -8,7 +8,7 @@ jobs:
   close-pr:
     runs-on: ubuntu-latest
     steps:
-    - name: Check all files for 'closed' Keyword
+    - name: Checking all files for 'closed' Keyword
       id: check-files
       run: |
         if grep -r --include=\* --exclude-dir=.git --exclude-dir=.github closed . ; then
